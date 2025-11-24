@@ -16,13 +16,15 @@ public class TiendaElectronica {
     public static void main(String[] args) {
         ConexionBD conexionBD = ConexionBD.getInstancia();
         Connection conn = conexionBD.getConexion();
-
+        
         if (conn != null) {
             System.out.println("Conexion exitosa");
         } else {
             System.out.println("Error de conexion");
         }
-
+        
         conexionBD.cerrarConexion();
     }
+
 }
+

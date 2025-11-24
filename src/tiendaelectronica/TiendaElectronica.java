@@ -4,17 +4,25 @@
  */
 package tiendaelectronica;
 
+import Utilidades.ConexionBD;
+import java.sql.Connection;
+
 /**
  *
  * @author itsth
  */
 public class TiendaElectronica {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ConexionBD conexionBD = ConexionBD.getInstancia();
+        Connection conn = conexionBD.getConexion();
+
+        if (conn != null) {
+            System.out.println("Conexion exitosa");
+        } else {
+            System.out.println("Error de conexion");
+        }
+
+        conexionBD.cerrarConexion();
     }
-    
 }

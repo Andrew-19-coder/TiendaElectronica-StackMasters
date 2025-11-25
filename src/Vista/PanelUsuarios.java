@@ -65,27 +65,68 @@ public class PanelUsuarios extends javax.swing.JInternalFrame {
     }
 
     private void agregarUsuario() {
-        javax.swing.JOptionPane.showMessageDialog(this,
-                "Funcionalidad en desarrollo",
-                "Información",
+        DialogoUsuario dialogo = new DialogoUsuario(null, true);
+    dialogo.setVisible(true);
+    
+    if (dialogo.isGuardado()) {
+        Usuario nuevoUsuario = dialogo.obtenerUsuario();
+        
+        if (usuarioDAO.insertar(nuevoUsuario)) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Usuario agregado correctamente",
+                "Éxito",
                 javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            cargarUsuarios();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error al agregar usuario. Verifique que el nombre de usuario no exista.",
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
     }
 
     private void editarUsuario() {
-        int filaSeleccionada = tablaUsuarios.getSelectedRow();
-
-        if (filaSeleccionada == -1) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                    "Debe seleccionar un usuario de la tabla",
-                    "Advertencia",
-                    javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
+         int filaSeleccionada = tablaUsuarios.getSelectedRow();
+    
+    if (filaSeleccionada == -1) {
         javax.swing.JOptionPane.showMessageDialog(this,
-                "Funcionalidad en desarrollo",
-                "Información",
+            "Debe seleccionar un usuario de la tabla",
+            "Advertencia",
+            javax.swing.JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    int idUsuario = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
+    Usuario usuarioEditar = usuarioDAO.obtenerPorId(idUsuario);
+    
+    if (usuarioEditar == null) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Error al cargar los datos del usuario",
+            "Error",
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    DialogoUsuario dialogo = new DialogoUsuario(null, true, usuarioEditar);
+    dialogo.setVisible(true);
+    
+    if (dialogo.isGuardado()) {
+        Usuario usuarioActualizado = dialogo.obtenerUsuario();
+        
+        if (usuarioDAO.actualizar(usuarioActualizado)) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Usuario actualizado correctamente",
+                "Éxito",
                 javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            cargarUsuarios();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error al actualizar usuario",
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
     }
 
     private void eliminarUsuario() {

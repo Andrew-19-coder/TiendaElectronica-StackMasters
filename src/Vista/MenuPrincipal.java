@@ -113,7 +113,7 @@ public void abrirVentanaInterna(javax.swing.JInternalFrame ventana) {
                 .addGroup(panelEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRol))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         desktopPane.setLayer(panelEstado, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -127,8 +127,8 @@ public void abrirVentanaInterna(javax.swing.JInternalFrame ventana) {
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desktopPaneLayout.createSequentialGroup()
-                .addGap(0, 229, Short.MAX_VALUE)
-                .addComponent(panelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 377, Short.MAX_VALUE)
+                .addComponent(panelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         MenuInventario.setText("Inventario                            ");

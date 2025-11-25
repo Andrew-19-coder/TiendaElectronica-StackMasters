@@ -3,10 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package tiendaelectronica;
-
-import Utilidades.ConexionBD;
-import java.sql.Connection;
-
+import Vista.LoginForm;
 /**
  *
  * @author itsth
@@ -14,16 +11,10 @@ import java.sql.Connection;
 public class TiendaElectronica {
 
     public static void main(String[] args) {
-        ConexionBD conexionBD = ConexionBD.getInstancia();
-        Connection conn = conexionBD.getConexion();
-        
-        if (conn != null) {
-            System.out.println("Conexion exitosa");
-        } else {
-            System.out.println("Error de conexion");
-        }
-        
-        conexionBD.cerrarConexion();
+        java.awt.EventQueue.invokeLater(() -> {
+            LoginForm login = new LoginForm(null, true);
+            login.setVisible(true);
+        });
     }
 
 }

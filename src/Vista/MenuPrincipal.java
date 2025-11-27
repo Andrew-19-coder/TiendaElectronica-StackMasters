@@ -227,7 +227,8 @@ public void abrirVentanaInterna(javax.swing.JInternalFrame ventana) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosActionPerformed
-        // TODO add your handling code here:
+      PanelProductos panelProductos = new PanelProductos();
+    abrirVentanaInterna(panelProductos);
     }//GEN-LAST:event_menuProductosActionPerformed
 
     private void menuProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProveedoresActionPerformed

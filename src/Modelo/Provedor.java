@@ -14,6 +14,9 @@ public class Provedor {
     private String contacto;
     private String direccion;
 
+    public Provedor() {
+    }
+
     public Provedor(int id, String nombre, String contacto, String direccion) {
         this.id = id;
         this.nombre = nombre;
@@ -35,6 +38,14 @@ public class Provedor {
     
     public String getDireccion() {
         return direccion;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setContacto(String contacto) {

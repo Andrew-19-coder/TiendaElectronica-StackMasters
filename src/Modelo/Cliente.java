@@ -15,6 +15,9 @@ public class Cliente {
     private String correo;
     private int comprasRealizadas;
 
+    public Cliente() {
+    }
+    
     public Cliente(String cedula, String nombreCompleto, String telefono, String correo, int comprasRealizadas) {
         this.cedula = cedula;
         this.nombreCompleto = nombreCompleto;
@@ -41,6 +44,14 @@ public class Cliente {
 
     public int getComprasRealizadas() {
         return comprasRealizadas;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     public void setTelefono(String telefono) {

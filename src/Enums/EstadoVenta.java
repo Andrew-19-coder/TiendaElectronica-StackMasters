@@ -9,18 +9,19 @@ package Enums;
  * @author Joan
  */
 public enum EstadoVenta {
-     COMPLETADA("Completada"),
+    COMPLETADA("Completada"),
     CANCELADA("Cancelada");
-    
+
     private final String descripcion;
+
     EstadoVenta(String descripcion) {
-        this.descripcion = descripcion;
+        this.descripcion  = descripcion;
     }
-   
+
     public String getDescripcion() {
         return descripcion;
     }
-    
+
     @Override
     public String toString() {
         return descripcion;

@@ -11,7 +11,9 @@ import Controlador.ControladorLogin;
  * @author Joan
  */
 public class LoginForm extends javax.swing.JDialog {
-private ControladorLogin controlador;
+
+    private ControladorLogin controlador;
+
     /**
      * Creates new form LoginForm
      */
@@ -22,47 +24,49 @@ private ControladorLogin controlador;
         configurarVentana();
         agregarListeners();
     }
-private void configurarVentana() {
-    setTitle("Inicio de Sesión - Tienda Electrónica");
-    setLocationRelativeTo(null);
-    setResizable(false);
-    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-}
 
-private void agregarListeners() {
-    btnLogin.addActionListener(e -> controlador.iniciarSesion());
-    btnSalir.addActionListener(e -> System.exit(0));
-    
-    txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyPressed(java.awt.event.KeyEvent evt) {
-            if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-                controlador.iniciarSesion();
+    private void configurarVentana() {
+        setTitle("Inicio de Sesión - Tienda Electrónica");
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+
+    private void agregarListeners() {
+        btnLogin.addActionListener(e -> controlador.iniciarSesion());
+        btnSalir.addActionListener(e -> System.exit(0));
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    controlador.iniciarSesion();
+                }
             }
-        }
-    });
-}
+        });
+    }
 
-public String getUsuario() {
-    return txtUsuario.getText().trim();
-}
+    public String getUsuario() {
+        return txtUsuario.getText().trim();
+    }
 
-public String getPassword() {
-    return new String(txtPassword.getPassword());
-}
+    public String getPassword() {
+        return new String(txtPassword.getPassword());
+    }
 
-public void limpiarCampos() {
-    txtUsuario.setText("");
-    txtPassword.setText("");
-    txtUsuario.requestFocus();
-}
+    public void limpiarCampos() {
+        txtUsuario.setText("");
+        txtPassword.setText("");
+        txtUsuario.requestFocus();
+    }
 
-public void mostrarError(String mensaje) {
-    javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-}
+    public void mostrarError(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
 
-public void mostrarMensaje(String mensaje) {
-    javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Información", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-}
+    public void mostrarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Información", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

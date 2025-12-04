@@ -3,17 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Vista;
+
 import Modelo.Producto;
 import Modelo.ProductoDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Joan
  */
 public class PanelProductos extends javax.swing.JInternalFrame {
- private ProductoDAO productoDAO;
+    private ProductoDAO productoDAO;
     private DefaultTableModel modeloTabla;
+
     /**
      * Creates new form PanelProductos
      */
@@ -23,220 +26,219 @@ public class PanelProductos extends javax.swing.JInternalFrame {
     }
 
     private void inicializar() {
-    productoDAO = new ProductoDAO();
-    configurarTabla();
-    cargarProductos();
-    agregarListeners();
-}
-
-private void configurarTabla() {
-    modeloTabla = (DefaultTableModel) tablaProductos.getModel();
-    modeloTabla.setRowCount(0);
-    
-    tablaProductos.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tablaProductos.getColumnModel().getColumn(1).setPreferredWidth(100);
-    tablaProductos.getColumnModel().getColumn(2).setPreferredWidth(200);
-    tablaProductos.getColumnModel().getColumn(3).setPreferredWidth(100);
-    tablaProductos.getColumnModel().getColumn(4).setPreferredWidth(80);
-    tablaProductos.getColumnModel().getColumn(5).setPreferredWidth(80);
-    tablaProductos.getColumnModel().getColumn(6).setPreferredWidth(150);
-    tablaProductos.getColumnModel().getColumn(7).setPreferredWidth(150);
-}
-
-private void cargarProductos() {
-    modeloTabla.setRowCount(0);
-    ArrayList<Producto> productos = productoDAO.obtenerTodos();
-    
-    for (Producto producto : productos) {
-        Object[] fila = {
-            producto.getIdProducto(),
-            producto.getCodigo(),
-            producto.getNombre(),
-            String.format("₡%.2f", producto.getPrecio()),
-            producto.getCantidadDisponible(),
-            producto.getStockMinimo(),
-            producto.getNombreCategoria() != null ? producto.getNombreCategoria() : "Sin categoría",
-            producto.getNombreProveedor() != null ? producto.getNombreProveedor() : "Sin proveedor"
-        };
-        modeloTabla.addRow(fila);
-    }
-}
-
-private void agregarListeners() {
-    btnAgregar.addActionListener(e -> agregarProducto());
-    btnEditar.addActionListener(e -> editarProducto());
-    btnEliminar.addActionListener(e -> eliminarProducto());
-    btnRefrescar.addActionListener(e -> cargarProductos());
-    btnBuscar.addActionListener(e -> buscarProducto());
-    btnStockBajo.addActionListener(e -> mostrarStockBajo());
-}
-
-private void agregarProducto() {
-    DialogoProducto dialogo = new DialogoProducto(null, true);
-    dialogo.setVisible(true);
-    
-    if (dialogo.isGuardado()) {
-        Producto nuevoProducto = dialogo.obtenerProducto();
-        
-        if (productoDAO.insertar(nuevoProducto)) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Producto agregado correctamente",
-                "Éxito",
-                javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            cargarProductos();
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Error al agregar producto. Verifique que el código no exista.",
-                "Error",
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-        }
-    }
-}
-
-private void editarProducto() {
-    int filaSeleccionada = tablaProductos.getSelectedRow();
-    
-    if (filaSeleccionada == -1) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "Debe seleccionar un producto de la tabla",
-            "Advertencia",
-            javax.swing.JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-    
-    int idProducto = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
-    Producto productoEditar = productoDAO.obtenerPorId(idProducto);
-    
-    if (productoEditar == null) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "Error al cargar los datos del producto",
-            "Error",
-            javax.swing.JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    DialogoProducto dialogo = new DialogoProducto(null, true, productoEditar);
-    dialogo.setVisible(true);
-    
-    if (dialogo.isGuardado()) {
-        Producto productoActualizado = dialogo.obtenerProducto();
-        
-        if (productoDAO.actualizar(productoActualizado)) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Producto actualizado correctamente",
-                "Éxito",
-                javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            cargarProductos();
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Error al actualizar producto",
-                "Error",
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-        }
-    }
-}
-
-private void eliminarProducto() {
-    int filaSeleccionada = tablaProductos.getSelectedRow();
-    
-    if (filaSeleccionada == -1) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "Debe seleccionar un producto de la tabla",
-            "Advertencia",
-            javax.swing.JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-    
-    int idProducto = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
-    String nombreProducto = (String) modeloTabla.getValueAt(filaSeleccionada, 2);
-    
-    int respuesta = javax.swing.JOptionPane.showConfirmDialog(this,
-        "¿Está seguro de eliminar el producto '" + nombreProducto + "'?",
-        "Confirmar eliminación",
-        javax.swing.JOptionPane.YES_NO_OPTION);
-    
-    if (respuesta == javax.swing.JOptionPane.YES_OPTION) {
-        if (productoDAO.eliminar(idProducto)) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Producto eliminado correctamente",
-                "Éxito",
-                javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            cargarProductos();
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Error al eliminar producto",
-                "Error",
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-        }
-    }
-}
-
-private void buscarProducto() {
-    String textoBuscar = txtBuscar.getText().trim();
-    
-    if (textoBuscar.isEmpty()) {
+        productoDAO = new ProductoDAO();
+        configurarTabla();
         cargarProductos();
-        return;
+        agregarListeners();
     }
-    
-    modeloTabla.setRowCount(0);
-    ArrayList<Producto> productos = productoDAO.buscar(textoBuscar);
-    
-    for (Producto producto : productos) {
-        Object[] fila = {
-            producto.getIdProducto(),
-            producto.getCodigo(),
-            producto.getNombre(),
-            String.format("₡%.2f", producto.getPrecio()),
-            producto.getCantidadDisponible(),
-            producto.getStockMinimo(),
-            producto.getNombreCategoria() != null ? producto.getNombreCategoria() : "Sin categoría",
-            producto.getNombreProveedor() != null ? producto.getNombreProveedor() : "Sin proveedor"
-        };
-        modeloTabla.addRow(fila);
-    }
-    
-    if (productos.isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "No se encontraron productos con ese criterio",
-            "Sin resultados",
-            javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    }
-}
 
-private void mostrarStockBajo() {
-    modeloTabla.setRowCount(0);
-    ArrayList<Producto> productos = productoDAO.obtenerBajoStock();
-    
-    for (Producto producto : productos) {
-        Object[] fila = {
-            producto.getIdProducto(),
-            producto.getCodigo(),
-            producto.getNombre(),
-            String.format("₡%.2f", producto.getPrecio()),
-            producto.getCantidadDisponible(),
-            producto.getStockMinimo(),
-            producto.getNombreCategoria() != null ? producto.getNombreCategoria() : "Sin categoría",
-            producto.getNombreProveedor() != null ? producto.getNombreProveedor() : "Sin proveedor"
-        };
-        modeloTabla.addRow(fila);
+    private void configurarTabla() {
+        modeloTabla = (DefaultTableModel) tablaProductos.getModel();
+        modeloTabla.setRowCount(0);
+
+        tablaProductos.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tablaProductos.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tablaProductos.getColumnModel().getColumn(2).setPreferredWidth(200);
+        tablaProductos.getColumnModel().getColumn(3).setPreferredWidth(100);
+        tablaProductos.getColumnModel().getColumn(4).setPreferredWidth(80);
+        tablaProductos.getColumnModel().getColumn(5).setPreferredWidth(80);
+        tablaProductos.getColumnModel().getColumn(6).setPreferredWidth(150);
+        tablaProductos.getColumnModel().getColumn(7).setPreferredWidth(150);
     }
-    
-    if (productos.isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "No hay productos con stock bajo",
-            "Stock OK",
-            javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        cargarProductos();
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "Se encontraron " + productos.size() + " producto(s) con stock bajo",
-            "Alerta de Stock",
-            javax.swing.JOptionPane.WARNING_MESSAGE);
+
+    private void cargarProductos() {
+        modeloTabla.setRowCount(0);
+        ArrayList<Producto> productos = productoDAO.obtenerTodos();
+
+        for (Producto producto : productos) {
+            Object[] fila = {
+                producto.getIdProducto(),
+                producto.getCodigo(),
+                producto.getNombre(),
+                String.format("₡%.2f", producto.getPrecio()),
+                producto.getCantidadDisponible(),
+                producto.getStockMinimo(),
+                producto.getNombreCategoria() != null ? producto.getNombreCategoria() : "Sin categoría",
+                producto.getNombreProveedor() != null ? producto.getNombreProveedor() : "Sin proveedor"
+            };
+            modeloTabla.addRow(fila);
+        }
     }
-}
-    
-    
+
+    private void agregarListeners() {
+        btnAgregar.addActionListener(e -> agregarProducto());
+        btnEditar.addActionListener(e -> editarProducto());
+        btnEliminar.addActionListener(e -> eliminarProducto());
+        btnRefrescar.addActionListener(e -> cargarProductos());
+        btnBuscar.addActionListener(e -> buscarProducto());
+        btnStockBajo.addActionListener(e -> mostrarStockBajo());
+    }
+
+    private void agregarProducto() {
+        DialogoProducto dialogo = new DialogoProducto(null, true);
+        dialogo.setVisible(true);
+
+        if (dialogo.isGuardado()) {
+            Producto nuevoProducto = dialogo.obtenerProducto();
+
+            if (productoDAO.insertar(nuevoProducto)) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Producto agregado correctamente",
+                        "Éxito",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                cargarProductos();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Error al agregar producto. Verifique que el código no exista.",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void editarProducto() {
+        int filaSeleccionada = tablaProductos.getSelectedRow();
+
+        if (filaSeleccionada == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Debe seleccionar un producto de la tabla",
+                    "Advertencia",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int idProducto = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
+        Producto productoEditar = productoDAO.obtenerPorId(idProducto);
+
+        if (productoEditar == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al cargar los datos del producto",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        DialogoProducto dialogo = new DialogoProducto(null, true, productoEditar);
+        dialogo.setVisible(true);
+
+        if (dialogo.isGuardado()) {
+            Producto productoActualizado = dialogo.obtenerProducto();
+
+            if (productoDAO.actualizar(productoActualizado)) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Producto actualizado correctamente",
+                        "Éxito",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                cargarProductos();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Error al actualizar producto",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void eliminarProducto() {
+        int filaSeleccionada = tablaProductos.getSelectedRow();
+
+        if (filaSeleccionada == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Debe seleccionar un producto de la tabla",
+                    "Advertencia",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int idProducto = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
+        String nombreProducto = (String) modeloTabla.getValueAt(filaSeleccionada, 2);
+
+        int respuesta = javax.swing.JOptionPane.showConfirmDialog(this,
+                "¿Está seguro de eliminar el producto '" + nombreProducto + "'?",
+                "Confirmar eliminación",
+                javax.swing.JOptionPane.YES_NO_OPTION);
+
+        if (respuesta == javax.swing.JOptionPane.YES_OPTION) {
+            if (productoDAO.eliminar(idProducto)) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Producto eliminado correctamente",
+                        "Éxito",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                cargarProductos();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Error al eliminar producto",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void buscarProducto() {
+        String textoBuscar = txtBuscar.getText().trim();
+
+        if (textoBuscar.isEmpty()) {
+            cargarProductos();
+            return;
+        }
+
+        modeloTabla.setRowCount(0);
+        ArrayList<Producto> productos = productoDAO.buscar(textoBuscar);
+
+        for (Producto producto : productos) {
+            Object[] fila = {
+                producto.getIdProducto(),
+                producto.getCodigo(),
+                producto.getNombre(),
+                String.format("₡%.2f", producto.getPrecio()),
+                producto.getCantidadDisponible(),
+                producto.getStockMinimo(),
+                producto.getNombreCategoria() != null ? producto.getNombreCategoria() : "Sin categoría",
+                producto.getNombreProveedor() != null ? producto.getNombreProveedor() : "Sin proveedor"
+            };
+            modeloTabla.addRow(fila);
+        }
+
+        if (productos.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se encontraron productos con ese criterio",
+                    "Sin resultados",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void mostrarStockBajo() {
+        modeloTabla.setRowCount(0);
+        ArrayList<Producto> productos = productoDAO.obtenerBajoStock();
+
+        for (Producto producto : productos) {
+            Object[] fila = {
+                producto.getIdProducto(),
+                producto.getCodigo(),
+                producto.getNombre(),
+                String.format("₡%.2f", producto.getPrecio()),
+                producto.getCantidadDisponible(),
+                producto.getStockMinimo(),
+                producto.getNombreCategoria() != null ? producto.getNombreCategoria() : "Sin categoría",
+                producto.getNombreProveedor() != null ? producto.getNombreProveedor() : "Sin proveedor"
+            };
+            modeloTabla.addRow(fila);
+        }
+
+        if (productos.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No hay productos con stock bajo",
+                    "Stock OK",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            cargarProductos();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Se encontraron " + productos.size() + " producto(s) con stock bajo",
+                    "Alerta de Stock",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -232,7 +232,8 @@ public void abrirVentanaInterna(javax.swing.JInternalFrame ventana) {
     }//GEN-LAST:event_menuProductosActionPerformed
 
     private void menuProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProveedoresActionPerformed
-        // TODO add your handling code here:
+        PanelProvedores panelProvedores = new PanelProvedores();
+        abrirVentanaInterna(panelProvedores);
     }//GEN-LAST:event_menuProveedoresActionPerformed
 
     private void menuCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCerrarSesionActionPerformed

@@ -130,6 +130,28 @@ public class ProvedorDAO {
         return provedores;
     }
 
+    public ArrayList<Provedor> obtenerDisponibles() {
+        ArrayList<Provedor> provedores = new ArrayList<>();
+        String sql = "SELECT id_provedor, nombre, contacto, telefono, email, direccion, estado FROM Provedores WHERE estado = true";
+
+        try {
+            Statement stmt = conexion.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                provedores.add(construirProvedor(rs));
+            }
+
+            rs.close();
+            stmt.close();
+
+        } catch (SQLException e) {
+            System.err.println("Error al obtener proveedores disponibles: " + e.getMessage());
+        }
+
+        return provedores;
+    }
+
     private Provedor construirProvedor(ResultSet rs) throws SQLException {
         Provedor provedor = new Provedor();
         provedor.setId(rs.getInt("id_provedor"));

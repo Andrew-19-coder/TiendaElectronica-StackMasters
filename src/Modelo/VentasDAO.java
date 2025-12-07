@@ -169,6 +169,23 @@ public class VentasDAO {
         return null;
     }
 
+    public boolean actualizarObservaciones(int idVenta, String observaciones) {
+        try {
+            String sql = "UPDATE Ventas SET observaciones = ? WHERE id_venta = ?";
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setString(1, observaciones);
+            ps.setInt(2, idVenta);
+
+            int filasAfectadas = ps.executeUpdate();
+            ps.close();
+            return filasAfectadas > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+            return false;
+        }
+    }
+
     public List<Ventas> listarVentas() {
         List<Ventas> lista = new ArrayList<>();
 
@@ -200,7 +217,11 @@ public class VentasDAO {
 
         String estadoTexto = rs.getString("estado");
         if (estadoTexto != null) {
-            venta.setEstado(EstadoVenta.valueOf(estadoTexto));
+            if (estadoTexto.equals("Completada")) {
+                venta.setEstado(EstadoVenta.COMPLETADA);
+            } else if (estadoTexto.equals("Cancelada")) {
+                venta.setEstado(EstadoVenta.CANCELADA);
+            }
         }
 
         calcularTotales(venta);

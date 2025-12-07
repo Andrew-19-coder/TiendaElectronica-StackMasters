@@ -9,8 +9,8 @@ package Enums;
  * @author Joan
  */
 public enum EstadoVenta {
-    COMPLETADA("Completada"),
-    CANCELADA("Cancelada");
+    COMPLETADA("COMPLETADA"),
+    CANCELADA("CANCELADA");
 
     private final String descripcion;
 

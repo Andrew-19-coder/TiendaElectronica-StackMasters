@@ -20,7 +20,7 @@ public class DetalleVentasDAO {
     }
     
     public boolean insertar(DetalleVentas detalle) {
-        String sql = "INSERT INTO DetalleVenta (id_venta, id_producto, cantidad, precio_unitario) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO DetalleVentas (id_venta, id_producto, cantidad, precio_unitario) VALUES (?, ?, ?, ?)";
         
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -41,7 +41,7 @@ public class DetalleVentasDAO {
     
     public List<DetalleVentas> obtenerPorVenta(int idVenta) {
         List<DetalleVentas> detalles = new ArrayList<>();
-        String sql = "SELECT * FROM DetalleVenta WHERE id_venta = ?";
+        String sql = "SELECT * FROM DetalleVentas WHERE id_venta = ?";
         
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);

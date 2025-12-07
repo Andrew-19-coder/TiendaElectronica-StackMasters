@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class ClienteDAO {
     
-     private Connection conexion;
+    private Connection conexion;
     
     public ClienteDAO() {
         this.conexion = ConexionBD.getInstancia().getConexion();

@@ -66,7 +66,7 @@ public class ProvedorDAO {
     }
 
     public boolean eliminar(int id) {
-        String sql = "DELETE FROM Provedores WHERE id_provedor = ?";
+        String sql = "UPDATE Provedores SET estado = false WHERE id_provedor = ?";
 
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -77,7 +77,7 @@ public class ProvedorDAO {
             return filasAfectadas > 0;
 
         } catch (SQLException e) {
-            System.err.println("Error al eliminar provedor: " + e.getMessage());
+            System.err.println("Error al desactivar provedor: " + e.getMessage());
             return false;
         }
     }

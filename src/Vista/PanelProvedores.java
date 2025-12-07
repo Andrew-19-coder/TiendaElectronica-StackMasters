@@ -43,9 +43,9 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
         btnActualizar.addActionListener(e -> controlador.actualizarProvedor());
         btnEliminar.addActionListener(e -> controlador.eliminarProvedor());
         btnDisponibles.addActionListener(e -> controlador.filtrarDisponibles());
+        btnMostrarTodos.addActionListener(e -> controlador.mostrarTodosProvedores());
     }
     
-    // Getter
     public JTable getTablaProvedores() { return tablaProvedores; }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,6 +68,7 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         btnDisponibles = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        btnMostrarTodos = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -121,28 +122,34 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnBuscar.setText("Buscar");
 
+        btnMostrarTodos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnMostrarTodos.setText("Mostrar todos");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtBuscar)
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
-                .addGap(69, 69, 69))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(btnAgregar)
-                .addGap(18, 18, 18)
-                .addComponent(btnActualizar)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminar)
-                .addGap(18, 18, 18)
-                .addComponent(btnDisponibles)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar)
+                        .addGap(84, 84, 84))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAgregar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnActualizar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDisponibles)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMostrarTodos)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +164,8 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
                     .addComponent(btnAgregar)
                     .addComponent(btnActualizar)
                     .addComponent(btnEliminar)
-                    .addComponent(btnDisponibles))
+                    .addComponent(btnDisponibles)
+                    .addComponent(btnMostrarTodos))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -180,6 +188,7 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnDisponibles;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

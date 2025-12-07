@@ -11,28 +11,33 @@ import Modelo.Provedor;
  * @author itsth
  */
 public class DialogoProvedor extends javax.swing.JDialog {
+
     private boolean confirmado = false;
     private Provedor provedor;
+
     /**
      * Creates new form DialogoProvedor
      */
     public DialogoProvedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.provedor = new Provedor(); 
+        chkEstado.setSelected(true);
     }
-    
+
+// Constructor para editar
     public DialogoProvedor(java.awt.Frame parent, boolean modal, Provedor provedor) {
         super(parent, modal);
+        initComponents();
         this.provedor = provedor;
         cargarDatos();
-        configurarEventos();
     }
-    
+
     private void configurarEventos() {
         btnGuardar.addActionListener(e -> guardar());
         btnCancelar.addActionListener(e -> dispose());
     }
-    
+
     private void cargarDatos() {
         txtNombre.setText(provedor.getNombre());
         txtContacto.setText(provedor.getContacto());
@@ -41,7 +46,7 @@ public class DialogoProvedor extends javax.swing.JDialog {
         txtDireccion.setText(provedor.getDireccion());
         chkEstado.setSelected(provedor.isEstado());
     }
-    
+
     private void guardar() {
         provedor.setNombre(txtNombre.getText().trim());
         provedor.setContacto(txtContacto.getText().trim());
@@ -49,15 +54,15 @@ public class DialogoProvedor extends javax.swing.JDialog {
         provedor.setEmail(txtEmail.getText().trim());
         provedor.setDireccion(txtDireccion.getText().trim());
         provedor.setEstado(chkEstado.isSelected());
-        
+
         confirmado = true;
         dispose();
     }
-    
+
     public boolean isConfirmado() {
         return confirmado;
     }
-    
+
     public Provedor getProvedor() {
         return provedor;
     }
@@ -112,23 +117,21 @@ public class DialogoProvedor extends javax.swing.JDialog {
         label6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label6.setText("Estado:");
 
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
-
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
-            }
-        });
-
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         chkEstado.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         chkEstado.setSelected(true);
@@ -196,13 +199,13 @@ public class DialogoProvedor extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        guardar();
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

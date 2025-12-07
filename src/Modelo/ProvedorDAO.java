@@ -21,7 +21,7 @@ public class ProvedorDAO {
     }
 
     public boolean insertar(Provedor provedor) {
-        String sql = "INSERT INTO Provedores (nombre, contacto, telefono, email, direccion, estado, fecha_registro) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        String sql = "INSERT INTO Provedores (nombre, contacto, telefono, email, direccion, estado) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class ProvedorDAO {
 
     public ArrayList<Provedor> obtenerTodos() {
         ArrayList<Provedor> provedores = new ArrayList<>();
-        String sql = "SELECT id_provedor, nombre, contacto, telefono, email, direccion, estado, fecha_registro FROM Provedores";
+        String sql = "SELECT id_provedor, nombre, contacto, telefono, email, direccion, estado FROM Provedores";
 
         try {
             Statement stmt = conexion.createStatement();

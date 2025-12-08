@@ -27,11 +27,12 @@ public class PanelClientes extends javax.swing.JInternalFrame {
      */
     public PanelClientes() {
         initComponents();
+        tablaClientes.getTableHeader().setBackground(new java.awt.Color(25, 118, 210)); // Azul
+        tablaClientes.getTableHeader().setForeground(java.awt.Color.WHITE);
+        tablaClientes.getTableHeader().setFont(new java.awt.Font("Segoe UI", 1, 13));
         this.controlador = new ControladorCliente(this);
         configurarEventos();
         controlador.cargarClientes();
-        lblCliente.setSize(120, 120);
-        iniciarAnimacion();
     }
     
     private void iniciarAnimacion() {
@@ -44,12 +45,12 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         java.net.URL imgURL = getClass().getResource(ruta);
         if (imgURL != null) {
             ImageIcon icon = new ImageIcon(imgURL);
-            java.awt.Image img = icon.getImage().getScaledInstance(
-                    lblCliente.getWidth(),
-                    lblCliente.getHeight(),
-                    java.awt.Image.SCALE_SMOOTH
-            );
-            lblCliente.setIcon(new ImageIcon(img));
+           // java.awt.Image img = icon.getImage().getScaledInstance(
+                    //lblCliente.getWidth(),
+                    //lblCliente.getHeight(),
+                  //  java.awt.Image.SCALE_SMOOTH
+          //  );
+            //lblCliente.setIcon(new ImageIcon(img));
         }
         frame++;
         if (frame > 4) {
@@ -86,7 +87,12 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        lblCliente = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaClientes = new javax.swing.JTable();
 
@@ -102,11 +108,10 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Agregar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 90, 18, 0);
+        gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
         panelBotones.add(btnAgregar, gridBagConstraints);
 
         btnActualizar.setBackground(new java.awt.Color(255, 153, 0));
@@ -114,10 +119,11 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 18, 0);
+        gridBagConstraints.insets = new java.awt.Insets(40, 12, 0, 0);
         panelBotones.add(btnActualizar, gridBagConstraints);
 
         btnEliminar.setBackground(new java.awt.Color(255, 0, 51));
@@ -125,11 +131,11 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 18, 0);
+        gridBagConstraints.insets = new java.awt.Insets(40, 12, 0, 0);
         panelBotones.add(btnEliminar, gridBagConstraints);
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
@@ -137,22 +143,22 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(153, 0, 153));
         jLabel1.setText("Buscar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 80, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 46, 0, 0);
         panelBotones.add(jLabel1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.gridx = 20;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.ipadx = 96;
         gridBagConstraints.ipady = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 37, 0, 8);
+        gridBagConstraints.insets = new java.awt.Insets(10, 6, 0, 6);
         panelBotones.add(txtBuscar, gridBagConstraints);
 
         btnBuscar.setBackground(new java.awt.Color(0, 0, 204));
@@ -160,34 +166,87 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 21;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 37, 18, 0);
+        gridBagConstraints.insets = new java.awt.Insets(40, 2, 0, 0);
         panelBotones.add(btnBuscar, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Gestion Clientes");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 32, 0, 0);
+        panelBotones.add(jLabel2, gridBagConstraints);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/floppy_disk_48.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 30, 0, 0);
+        panelBotones.add(jLabel3, gridBagConstraints);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Actualizar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 22;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 30, 0, 0);
+        panelBotones.add(jLabel4, gridBagConstraints);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cancelar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 20, 0, 0);
+        panelBotones.add(jLabel5, gridBagConstraints);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Search.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 19;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 12, 0, 0);
+        panelBotones.add(jLabel6, gridBagConstraints);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Buscar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 19;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 12, 0, 0);
+        panelBotones.add(jLabel7, gridBagConstraints);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cliente.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 12;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(7, 73, 0, 0);
-        panelBotones.add(jLabel2, gridBagConstraints);
-
-        lblCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cliente5.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -360;
-        gridBagConstraints.ipady = -430;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        panelBotones.add(lblCliente, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 60, 0, 0);
+        panelBotones.add(jLabel8, gridBagConstraints);
 
         getContentPane().add(panelBotones, java.awt.BorderLayout.PAGE_START);
 
@@ -219,8 +278,13 @@ public class PanelClientes extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCliente;
     private javax.swing.JPanel panelBotones;
     private javax.swing.JTable tablaClientes;
     private javax.swing.JTextField txtBuscar;

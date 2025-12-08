@@ -81,7 +81,7 @@ public class CategoriaDAO {
     
     public ArrayList<Categoria> obtenerTodos() {
         ArrayList<Categoria> categorias = new ArrayList<>();
-        String sql = "SELECT id_provedor, nombre, contacto, direccion FROM Provedores";
+        String sql = "SELECT id_provedor, nombre, contacto, direccion FROM Categoria";
         
         try {
             Statement stmt = conexion.createStatement();
@@ -98,6 +98,30 @@ public class CategoriaDAO {
             System.err.println("Error al obtener Categorias: " + e.getMessage());
         }
         
+        return categorias;
+    }
+    
+    public ArrayList<Categoria> buscar(String criterio) {
+        ArrayList<Categoria> categorias = new ArrayList<>();
+        String sql = "SELECT id_categoria, nombre_categoria, descripcion FROM Categoria WHERE id_categoria = ?";
+
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            String parametro = "%" + criterio + "%";
+            ps.setString(1, parametro);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                categorias.add(construirCategoria(rs));
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (SQLException e) {
+            System.err.println("Error al buscar categoria: " + e.getMessage());
+        }
+
         return categorias;
     }
 }

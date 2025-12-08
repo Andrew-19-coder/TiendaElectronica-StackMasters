@@ -77,7 +77,7 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         setTitle("Gestión de Categorías");
         setPreferredSize(new java.awt.Dimension(590, 600));
 
-        panelSuperior.setBackground(new java.awt.Color(51, 204, 255));
+        panelSuperior.setBackground(new java.awt.Color(0, 204, 204));
         panelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelSuperior.setPreferredSize(new java.awt.Dimension(900, 130));
         panelSuperior.setLayout(new java.awt.GridBagLayout());
@@ -276,6 +276,8 @@ public class panelCategoria extends javax.swing.JInternalFrame {
 
         scrollTabla.setViewportBorder(new javax.swing.border.MatteBorder(null));
 
+        tablaCategorias.setBackground(new java.awt.Color(51, 204, 255));
+        tablaCategorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tablaCategorias.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         tablaCategorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -306,7 +308,7 @@ public class panelCategoria extends javax.swing.JInternalFrame {
             }
         });
         tablaCategorias.setGridColor(new java.awt.Color(224, 224, 224));
-        tablaCategorias.setSelectionBackground(new java.awt.Color(102, 204, 255));
+        tablaCategorias.setSelectionBackground(new java.awt.Color(153, 153, 153));
         tablaCategorias.setShowGrid(true);
         scrollTabla.setViewportView(tablaCategorias);
 

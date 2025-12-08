@@ -41,7 +41,7 @@ public class GeneradorPDF {
             titulo.setSpacingAfter(20);
             documento.add(titulo);
             
-            // ===== INFORMACIÓN DE LA EMPRESA =====
+          
             Paragraph infoEmpresa = new Paragraph();
             infoEmpresa.add(new Chunk("Tienda Electrónica S.A.\n", fuenteSubtitulo));
             infoEmpresa.add(new Chunk("Dirección: Av. Principal #123\n", fuenteNormal));
@@ -49,11 +49,11 @@ public class GeneradorPDF {
             infoEmpresa.add(new Chunk("Email: ventas@tienda.com\n\n", fuenteNormal));
             documento.add(infoEmpresa);
             
-            // Línea separadora
+            
             documento.add(new Paragraph("─────────────────────────────────────────────────────────────"));
             documento.add(Chunk.NEWLINE);
             
-            // ===== INFORMACIÓN DE LA FACTURA =====
+           
             PdfPTable tablaInfo = new PdfPTable(2);
             tablaInfo.setWidthPercentage(100);
             tablaInfo.setWidths(new float[]{1, 1});

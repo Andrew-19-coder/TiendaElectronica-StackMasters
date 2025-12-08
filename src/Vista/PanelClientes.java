@@ -77,7 +77,6 @@ public class PanelClientes extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         panelBotones = new javax.swing.JPanel();
         btnAgregar = new javax.swing.JButton();
@@ -101,152 +100,61 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         panelBotones.setBackground(new java.awt.Color(0, 204, 204));
         panelBotones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelBotones.setPreferredSize(new java.awt.Dimension(688, 150));
-        panelBotones.setLayout(new java.awt.GridBagLayout());
+        panelBotones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAgregar.setBackground(new java.awt.Color(0, 153, 51));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Agregar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
-        panelBotones.add(btnAgregar, gridBagConstraints);
+        panelBotones.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
         btnActualizar.setBackground(new java.awt.Color(255, 153, 0));
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 12, 0, 0);
-        panelBotones.add(btnActualizar, gridBagConstraints);
+        panelBotones.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
 
         btnEliminar.setBackground(new java.awt.Color(255, 0, 51));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 12, 0, 0);
-        panelBotones.add(btnEliminar, gridBagConstraints);
+        panelBotones.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 153));
         jLabel1.setText("Buscar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 46, 0, 0);
-        panelBotones.add(jLabel1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 20;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = 96;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 6, 0, 6);
-        panelBotones.add(txtBuscar, gridBagConstraints);
+        panelBotones.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 15, -1, 30));
+        panelBotones.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 160, 30));
 
         btnBuscar.setBackground(new java.awt.Color(0, 0, 204));
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 21;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 2, 0, 0);
-        panelBotones.add(btnBuscar, gridBagConstraints);
+        panelBotones.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Gestion Clientes");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 32, 0, 0);
-        panelBotones.add(jLabel2, gridBagConstraints);
+        panelBotones.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 194, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/floppy_disk_48.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.ipady = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 30, 0, 0);
-        panelBotones.add(jLabel3, gridBagConstraints);
+        panelBotones.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 50));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Actualizar.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipady = 22;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 30, 0, 0);
-        panelBotones.add(jLabel4, gridBagConstraints);
+        panelBotones.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, 70));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cancelar.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 20, 0, 0);
-        panelBotones.add(jLabel5, gridBagConstraints);
+        panelBotones.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, 50));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Search.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 19;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipady = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 12, 0, 0);
-        panelBotones.add(jLabel6, gridBagConstraints);
+        panelBotones.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Buscar.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 19;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 12, 0, 0);
-        panelBotones.add(jLabel7, gridBagConstraints);
+        panelBotones.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, -1, 50));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cliente.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 4;
-        gridBagConstraints.ipadx = 5;
-        gridBagConstraints.ipady = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 60, 0, 0);
-        panelBotones.add(jLabel8, gridBagConstraints);
+        panelBotones.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 60, 60));
 
         getContentPane().add(panelBotones, java.awt.BorderLayout.PAGE_START);
 

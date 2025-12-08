@@ -25,6 +25,7 @@ public class panelCategoria extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         panelSuperior = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
@@ -55,12 +56,21 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         panelSuperior.setBackground(new java.awt.Color(51, 204, 255));
         panelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelSuperior.setPreferredSize(new java.awt.Dimension(900, 130));
-        panelSuperior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelSuperior.setLayout(new java.awt.GridBagLayout());
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 0, 102));
         lblTitulo.setText("Gestión de Categorías");
-        panelSuperior.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 200, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 11;
+        gridBagConstraints.ipady = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        panelSuperior.add(lblTitulo, gridBagConstraints);
 
         btnAgregar.setBackground(new java.awt.Color(0, 204, 0));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -71,7 +81,12 @@ public class panelCategoria extends javax.swing.JInternalFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        panelSuperior.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 12, 0, 0);
+        panelSuperior.add(btnAgregar, gridBagConstraints);
 
         btnActualizar.setBackground(new java.awt.Color(255, 102, 0));
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -82,46 +97,116 @@ public class panelCategoria extends javax.swing.JInternalFrame {
                 btnActualizarActionPerformed(evt);
             }
         });
-        panelSuperior.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        panelSuperior.add(btnActualizar, gridBagConstraints);
 
         btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
-        panelSuperior.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 12, 0, 0);
+        panelSuperior.add(btnEliminar, gridBagConstraints);
 
         btnBuscar.setBackground(new java.awt.Color(0, 51, 255));
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
-        panelSuperior.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 23;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 2, 0, 0);
+        panelSuperior.add(btnBuscar, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 204));
         jLabel1.setText("Buscar ");
-        panelSuperior.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 15, -1, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 30, 0, 0);
+        panelSuperior.add(jLabel1, gridBagConstraints);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        panelSuperior.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 130, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 18;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.ipady = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 7, 0, 4);
+        panelSuperior.add(jTextField1, gridBagConstraints);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Guardar.png"))); // NOI18N
-        panelSuperior.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        panelSuperior.add(jLabel2, gridBagConstraints);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Actualizar.png"))); // NOI18N
-        panelSuperior.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 29, 0, 0);
+        panelSuperior.add(jLabel3, gridBagConstraints);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cancelar.png"))); // NOI18N
-        panelSuperior.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 22, 0, 0);
+        panelSuperior.add(jLabel4, gridBagConstraints);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Buscar.png"))); // NOI18N
-        panelSuperior.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, -1, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 13;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 17, 0, 0);
+        panelSuperior.add(jLabel5, gridBagConstraints);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/categoria.png"))); // NOI18N
-        panelSuperior.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 50, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 39, 0, 0);
+        panelSuperior.add(jLabel6, gridBagConstraints);
 
         getContentPane().add(panelSuperior, java.awt.BorderLayout.PAGE_START);
 
@@ -146,7 +231,7 @@ public class panelCategoria extends javax.swing.JInternalFrame {
                 .addComponent(lblTotal)
                 .addGap(30, 30, 30)
                 .addComponent(lblCantidadTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(355, Short.MAX_VALUE))
+                .addContainerGap(357, Short.MAX_VALUE))
         );
         panelEstadisticasLayout.setVerticalGroup(
             panelEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

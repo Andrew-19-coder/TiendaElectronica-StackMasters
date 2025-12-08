@@ -4,17 +4,37 @@
  */
 package Vista;
 
+import Controlador.ControladorCategoria;
+import Modelo.Categoria;
+import javax.swing.JTable;
+
 /**
  *
  * @author Braya
  */
 public class panelCategoria extends javax.swing.JInternalFrame {
+    
+    private ControladorCategoria controlador;
 
     /**
      * Creates new form panelCategoria
      */
     public panelCategoria() {
         initComponents();
+        this.controlador = new ControladorCategoria(this);
+        configurarEventos();
+        controlador.cargarCategoria();
+    }
+    
+    public JTable getTable(){
+        return tablaCategorias;
+    }
+    
+    private void configurarEventos() {
+        btnBuscar.addActionListener(e -> controlador.buscarCategoria(txtBuscar.getText().trim()));
+        btnAgregar.addActionListener(e -> controlador.agregarCategoria());
+        btnActualizar.addActionListener(e -> controlador.actualizarCategoria());
+        btnEliminar.addActionListener(e -> controlador.eliminarCategoria());
     }
 
     /**
@@ -34,7 +54,7 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         panelEstadisticas = new javax.swing.JPanel();
         lblTotal = new javax.swing.JLabel();
         lblCantidadTotal = new javax.swing.JLabel();
@@ -142,7 +162,7 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         gridBagConstraints.ipady = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 7, 0, 6);
-        panelSuperior.add(jTextField1, gridBagConstraints);
+        panelSuperior.add(txtBuscar, gridBagConstraints);
 
         getContentPane().add(panelSuperior, java.awt.BorderLayout.PAGE_START);
 
@@ -239,7 +259,6 @@ public class panelCategoria extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblCantidadTotal;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTotal;
@@ -247,5 +266,6 @@ public class panelCategoria extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelSuperior;
     private javax.swing.JScrollPane scrollTabla;
     private javax.swing.JTable tablaCategorias;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

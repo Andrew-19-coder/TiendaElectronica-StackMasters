@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Modelo.Categoria;
+
 /**
  *
  * @author Braya
@@ -11,14 +13,47 @@ package Vista;
 public class DialogoCategoria extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DialogoCategoria.class.getName());
-
+    
+    private Categoria cate;
+    private boolean confirmado = false;
     /**
      * Creates new form DialogoCategoria
      */
     public DialogoCategoria(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.cate = cate;
     }
+    
+    public Categoria getCate() {
+        return cate;
+    }
+
+    public boolean isConfirmado() {
+        return confirmado;
+    }
+    
+    private void cargarDatos() {
+        txtNombre.setText(cate.getNombre());
+        txtDescripcion.setText(cate.getDescripcion());
+    }
+    
+    private void guardar() {
+        cate.setNombre(txtNombre.getText().trim());
+        cate.setDescripcion(txtDescripcion.getText().trim());
+
+        confirmado = true;
+        dispose();
+    }
+    
+    private void configurarEventos() {
+        btnAgregar.addActionListener(e -> guardar());
+        btnCancelar.addActionListener(e -> dispose());
+    }
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,6 +117,11 @@ public class DialogoCategoria extends javax.swing.JDialog {
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -100,11 +140,21 @@ public class DialogoCategoria extends javax.swing.JDialog {
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Guardar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,6 +183,18 @@ public class DialogoCategoria extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        guardar();
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

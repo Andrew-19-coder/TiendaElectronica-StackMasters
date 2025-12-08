@@ -25,7 +25,6 @@ public class panelCategoria extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         panelSuperior = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
@@ -35,6 +34,11 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         panelEstadisticas = new javax.swing.JPanel();
         lblTotal = new javax.swing.JLabel();
         lblCantidadTotal = new javax.swing.JLabel();
@@ -50,21 +54,13 @@ public class panelCategoria extends javax.swing.JInternalFrame {
 
         panelSuperior.setBackground(new java.awt.Color(51, 204, 255));
         panelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelSuperior.setPreferredSize(new java.awt.Dimension(900, 100));
-        panelSuperior.setLayout(new java.awt.GridBagLayout());
+        panelSuperior.setPreferredSize(new java.awt.Dimension(900, 130));
+        panelSuperior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 0, 102));
         lblTitulo.setText("Gestión de Categorías");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = -5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 29, 0, 0);
-        panelSuperior.add(lblTitulo, gridBagConstraints);
+        panelSuperior.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 200, 40));
 
         btnAgregar.setBackground(new java.awt.Color(0, 204, 0));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -75,12 +71,7 @@ public class panelCategoria extends javax.swing.JInternalFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 60, 11, 0);
-        panelSuperior.add(btnAgregar, gridBagConstraints);
+        panelSuperior.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         btnActualizar.setBackground(new java.awt.Color(255, 102, 0));
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -91,58 +82,46 @@ public class panelCategoria extends javax.swing.JInternalFrame {
                 btnActualizarActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 29, 11, 0);
-        panelSuperior.add(btnActualizar, gridBagConstraints);
+        panelSuperior.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
 
         btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 22, 11, 0);
-        panelSuperior.add(btnEliminar, gridBagConstraints);
+        panelSuperior.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
 
         btnBuscar.setBackground(new java.awt.Color(0, 51, 255));
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 17, 11, 0);
-        panelSuperior.add(btnBuscar, gridBagConstraints);
+        panelSuperior.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 204));
         jLabel1.setText("Buscar ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
-        panelSuperior.add(jLabel1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 11;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = 66;
-        gridBagConstraints.ipady = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 7, 0, 6);
-        panelSuperior.add(jTextField1, gridBagConstraints);
+        panelSuperior.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 15, -1, 30));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        panelSuperior.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 130, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Guardar.png"))); // NOI18N
+        panelSuperior.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 60));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Actualizar.png"))); // NOI18N
+        panelSuperior.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, 50));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cancelar.png"))); // NOI18N
+        panelSuperior.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, 60));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Buscar.png"))); // NOI18N
+        panelSuperior.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, -1, 50));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/categoria.png"))); // NOI18N
+        panelSuperior.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 50, 50));
 
         getContentPane().add(panelSuperior, java.awt.BorderLayout.PAGE_START);
 
@@ -167,7 +146,7 @@ public class panelCategoria extends javax.swing.JInternalFrame {
                 .addComponent(lblTotal)
                 .addGap(30, 30, 30)
                 .addComponent(lblCantidadTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(355, Short.MAX_VALUE))
         );
         panelEstadisticasLayout.setVerticalGroup(
             panelEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,6 +211,10 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         dialogo.setVisible(true);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -239,6 +222,11 @@ public class panelCategoria extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblCantidadTotal;
     private javax.swing.JLabel lblTitulo;

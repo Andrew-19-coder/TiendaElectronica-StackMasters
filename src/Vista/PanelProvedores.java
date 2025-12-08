@@ -20,22 +20,11 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
     private ControladorProvedor controlador;
     public PanelProvedores() {
         initComponents();
-        configurarTabla();
         this.controlador = new ControladorProvedor(this);
         configurarEventos();
         controlador.cargarProvedores();
     }
     
-    private void configurarTabla() {
-        String[] columnas = {"ID", "Nombre", "Contacto", "Telefono", "Email", "Direccion", "Estado"};
-        DefaultTableModel modelo = new DefaultTableModel(columnas, 0) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        tablaProvedores.setModel(modelo);
-    }
     
     private void configurarEventos() {
         btnBuscar.addActionListener(e -> controlador.buscarProvedor(txtBuscar.getText().trim()));
@@ -55,6 +44,7 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -68,13 +58,26 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
         btnDisponibles = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnMostrarTodos = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         tablaProvedores.setAutoCreateRowSorter(true);
+        tablaProvedores.setBackground(new java.awt.Color(0, 204, 255));
+        tablaProvedores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tablaProvedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -88,70 +91,195 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
+        jPanel1.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(782, 140));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("Búsqueda de proveedores:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 11;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 54, 0, 0);
+        jPanel1.add(jLabel1, gridBagConstraints);
 
-        btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtBuscar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 20;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 65;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 8, 0, 0);
+        jPanel1.add(txtBuscar, gridBagConstraints);
+
+        btnAgregar.setBackground(new java.awt.Color(0, 204, 0));
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Agregar");
+        btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 12, 0, 0);
+        jPanel1.add(btnAgregar, gridBagConstraints);
 
-        btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnActualizar.setBackground(new java.awt.Color(204, 0, 204));
+        btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
+        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 10, 0, 0);
+        jPanel1.add(btnActualizar, gridBagConstraints);
 
-        btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
+        btnEliminar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
+        jPanel1.add(btnEliminar, gridBagConstraints);
 
-        btnDisponibles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDisponibles.setBackground(new java.awt.Color(255, 102, 51));
+        btnDisponibles.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnDisponibles.setForeground(new java.awt.Color(255, 255, 255));
         btnDisponibles.setText("Disponibles");
+        btnDisponibles.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 12, 0, 0);
+        jPanel1.add(btnDisponibles, gridBagConstraints);
 
-        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscar.setBackground(new java.awt.Color(255, 0, 204));
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
+        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 26;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 2, 0, 5);
+        jPanel1.add(btnBuscar, gridBagConstraints);
 
-        btnMostrarTodos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnMostrarTodos.setBackground(new java.awt.Color(0, 0, 204));
+        btnMostrarTodos.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnMostrarTodos.setForeground(new java.awt.Color(255, 255, 255));
         btnMostrarTodos.setText("Mostrar todos");
+        btnMostrarTodos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 15;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
+        jPanel1.add(btnMostrarTodos, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBuscar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar)
-                        .addGap(84, 84, 84))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAgregar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnActualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDisponibles)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMostrarTodos)
-                        .addContainerGap(61, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnActualizar)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnDisponibles)
-                    .addComponent(btnMostrarTodos))
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Gestion Provedores");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 0, 0);
+        jPanel1.add(jLabel2, gridBagConstraints);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Guardar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 10, 0, 0);
+        jPanel1.add(jLabel3, gridBagConstraints);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Actualizar.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = -40;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 36, 10, 0);
+        jPanel1.add(jLabel4, gridBagConstraints);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/disponible.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 43, 10, 0);
+        jPanel1.add(jLabel5, gridBagConstraints);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cancelar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 30, 10, 0);
+        jPanel1.add(jLabel6, gridBagConstraints);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/mostarTodo.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 36, 10, 0);
+        jPanel1.add(jLabel7, gridBagConstraints);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Buscar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 25;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 27, 10, 0);
+        jPanel1.add(jLabel8, gridBagConstraints);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/provedor.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.ipadx = 12;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 0);
+        jPanel1.add(jLabel9, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
@@ -167,6 +295,14 @@ public class PanelProvedores extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

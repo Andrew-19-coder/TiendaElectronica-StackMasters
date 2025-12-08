@@ -173,6 +173,11 @@ public void abrirVentanaInterna(javax.swing.JInternalFrame ventana) {
         jMenu2.setText("Clientes                                ");
 
         menuGestionClientes.setText("Gestion de Clientes");
+        menuGestionClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuGestionClientesActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuGestionClientes);
 
         jMenuBar1.add(jMenu2);
@@ -265,6 +270,11 @@ public void abrirVentanaInterna(javax.swing.JInternalFrame ventana) {
         panelVentas panel = new panelVentas();
         abrirVentanaInterna(panel);
     }//GEN-LAST:event_menuNuevaVentaActionPerformed
+
+    private void menuGestionClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGestionClientesActionPerformed
+        PanelClientes panelClientes = new PanelClientes();
+        abrirVentanaInterna(panelClientes);
+    }//GEN-LAST:event_menuGestionClientesActionPerformed
 
     /**
      * @param args the command line arguments

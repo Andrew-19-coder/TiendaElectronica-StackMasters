@@ -151,6 +151,11 @@ public void abrirVentanaInterna(javax.swing.JInternalFrame ventana) {
         MenuInventario.add(menuProveedores);
 
         menuCategorias.setText("Categorias");
+        menuCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCategoriasActionPerformed(evt);
+            }
+        });
         MenuInventario.add(menuCategorias);
 
         jMenuBar1.add(MenuInventario);
@@ -271,10 +276,17 @@ public void abrirVentanaInterna(javax.swing.JInternalFrame ventana) {
         abrirVentanaInterna(panel);
     }//GEN-LAST:event_menuNuevaVentaActionPerformed
 
+
     private void menuGestionClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGestionClientesActionPerformed
         PanelClientes panelClientes = new PanelClientes();
         abrirVentanaInterna(panelClientes);
     }//GEN-LAST:event_menuGestionClientesActionPerformed
+
+    private void menuCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCategoriasActionPerformed
+        panelCategoria panel = new panelCategoria();
+        abrirVentanaInterna(panel);
+    }//GEN-LAST:event_menuCategoriasActionPerformed
+
 
     /**
      * @param args the command line arguments

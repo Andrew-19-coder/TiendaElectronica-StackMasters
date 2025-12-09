@@ -38,7 +38,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanelTarjetas.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));
         monitorStock = new MonitorStockBajo(this, 60);
         monitorStock.start();
-        System.out.println("🚀 Monitor de stock iniciado");
+        System.out.println("Monitor de stock iniciado");
 
         actualizarEstadisticas();
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -600,7 +600,7 @@ private void actualizarEstadisticas() {
         
         ps = conn.prepareStatement(
             "SELECT COALESCE(SUM(dv.cantidad * dv.precio_unitario * 1.13), 0) " +
-            "FROM DetalleVentas dv " +
+            "FROM Detalle_ventas dv " +
             "JOIN Ventas v ON dv.id_venta = v.id_venta " +
             "WHERE v.estado = 'COMPLETADA'"
         );

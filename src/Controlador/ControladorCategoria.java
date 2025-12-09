@@ -33,6 +33,7 @@ public class ControladorCategoria {
 
         for (Categoria p : categorias) {
             Object[] fila = {
+                p.getId(),
                 p.getNombre(),
                 p.getDescripcion()
             };

@@ -81,7 +81,7 @@ public class CategoriaDAO {
     
     public ArrayList<Categoria> obtenerTodos() {
         ArrayList<Categoria> categorias = new ArrayList<>();
-        String sql = "SELECT id_provedor, nombre, contacto, direccion FROM Categoria";
+        String sql = "SELECT id_categoria, nombre_categoria, descripcion FROM Categoria";
         
         try {
             Statement stmt = conexion.createStatement();

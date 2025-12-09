@@ -261,7 +261,7 @@ public class PanelProductos extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Gestion de Productos");
 
-        panelSuperior.setBackground(new java.awt.Color(0, 153, 153));
+        panelSuperior.setBackground(new java.awt.Color(0, 204, 204));
         panelSuperior.setPreferredSize(new java.awt.Dimension(606, 140));
         panelSuperior.setLayout(new java.awt.GridBagLayout());
 
@@ -300,14 +300,7 @@ public class PanelProductos extends javax.swing.JInternalFrame {
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 13;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 12, 0, 0);
-        panelSuperior.add(btnBuscar, gridBagConstraints);
+        panelSuperior.add(btnBuscar, new java.awt.GridBagConstraints());
 
         btnAgregar.setBackground(new java.awt.Color(0, 204, 0));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -348,7 +341,8 @@ public class PanelProductos extends javax.swing.JInternalFrame {
         panelSuperior.add(btnEliminar, gridBagConstraints);
 
         btnRefrescar.setBackground(new java.awt.Color(204, 153, 0));
-        btnRefrescar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRefrescar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnRefrescar.setForeground(new java.awt.Color(255, 255, 255));
         btnRefrescar.setText("Refrescar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 13;
@@ -359,7 +353,7 @@ public class PanelProductos extends javax.swing.JInternalFrame {
         panelSuperior.add(btnRefrescar, gridBagConstraints);
 
         btnStockBajo.setBackground(new java.awt.Color(153, 0, 153));
-        btnStockBajo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnStockBajo.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnStockBajo.setForeground(new java.awt.Color(255, 255, 255));
         btnStockBajo.setText("Stock Bajo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -472,7 +466,7 @@ public class PanelProductos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator1)
                         .addContainerGap())
-                    .addComponent(panelSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)))
+                    .addComponent(panelSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -140,7 +140,7 @@ public class PanelClientes extends javax.swing.JInternalFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("Buscar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 12;
@@ -253,7 +253,7 @@ public class PanelClientes extends javax.swing.JInternalFrame {
         getContentPane().add(panelBotones, java.awt.BorderLayout.PAGE_START);
 
         tablaClientes.setAutoCreateRowSorter(true);
-        tablaClientes.setBackground(new java.awt.Color(0, 153, 255));
+        tablaClientes.setBackground(new java.awt.Color(51, 204, 255));
         tablaClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

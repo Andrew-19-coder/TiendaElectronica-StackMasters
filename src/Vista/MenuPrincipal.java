@@ -600,7 +600,7 @@ private void actualizarEstadisticas() {
         
         ps = conn.prepareStatement(
             "SELECT COALESCE(SUM(dv.cantidad * dv.precio_unitario * 1.13), 0) " +
-            "FROM Detalle_ventas dv " +
+            "FROM DetalleVentas dv " +
             "JOIN Ventas v ON dv.id_venta = v.id_venta " +
             "WHERE v.estado = 'COMPLETADA'"
         );

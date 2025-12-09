@@ -8,14 +8,14 @@ import Controlador.ControladorCategoria;
 import Modelo.Categoria;
 import javax.swing.JTable;
 
+
 /**
  *
  * @author Braya
  */
 public class panelCategoria extends javax.swing.JInternalFrame {
-    
-    private ControladorCategoria controlador;
 
+    private ControladorCategoria controlador;
     /**
      * Creates new form panelCategoria
      */
@@ -25,9 +25,9 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         configurarEventos();
         controlador.cargarCategoria();
     }
-    
+
     public JTable getTable(){
-        return tablaCategorias;
+        return tablaCategoria;
     }
     
     private void configurarEventos() {
@@ -36,7 +36,6 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         btnActualizar.addActionListener(e -> controlador.actualizarCategoria());
         btnEliminar.addActionListener(e -> controlador.eliminarCategoria());
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,58 +46,53 @@ public class panelCategoria extends javax.swing.JInternalFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        panelSuperior = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
-        btnAgregar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-<<<<<<< HEAD
-        txtBuscar = new javax.swing.JTextField();
-=======
-        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnActualizar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        btnEliminar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
->>>>>>> b535bd5c057c7e7e5227cb74905e3de247624696
-        panelEstadisticas = new javax.swing.JPanel();
-        lblTotal = new javax.swing.JLabel();
-        lblCantidadTotal = new javax.swing.JLabel();
-        scrollTabla = new javax.swing.JScrollPane();
-        tablaCategorias = new javax.swing.JTable();
+        btnBuscar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaCategoria = new javax.swing.JTable();
 
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
-        setTitle("Gestión de Categorías");
-        setPreferredSize(new java.awt.Dimension(590, 600));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setPreferredSize(new java.awt.Dimension(444, 140));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        panelSuperior.setBackground(new java.awt.Color(0, 204, 204));
-        panelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelSuperior.setPreferredSize(new java.awt.Dimension(900, 130));
-        panelSuperior.setLayout(new java.awt.GridBagLayout());
-
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(0, 0, 102));
-        lblTitulo.setText("Gestión de Categorías");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Gestion Categoria");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 15;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        panelSuperior.add(lblTitulo, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 12, 0, 0);
+        jPanel1.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/categoria.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 35, 0, 0);
+        jPanel1.add(jLabel2, gridBagConstraints);
 
         btnAgregar.setBackground(new java.awt.Color(0, 204, 0));
-        btnAgregar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
-        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,189 +101,151 @@ public class panelCategoria extends javax.swing.JInternalFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 12, 0, 0);
-        panelSuperior.add(btnAgregar, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(31, 6, 0, 0);
+        jPanel1.add(btnAgregar, gridBagConstraints);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Guardar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 6, 0, 0);
+        jPanel1.add(jLabel3, gridBagConstraints);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Actualizar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(21, 25, 0, 0);
+        jPanel1.add(jLabel4, gridBagConstraints);
 
         btnActualizar.setBackground(new java.awt.Color(255, 102, 0));
-        btnActualizar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        btnActualizar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
-        panelSuperior.add(btnActualizar, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(31, 2, 0, 0);
+        jPanel1.add(btnActualizar, gridBagConstraints);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cancelar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.ipady = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(21, 29, 10, 0);
+        jPanel1.add(jLabel5, gridBagConstraints);
 
         btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
-        btnEliminar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 12, 0, 0);
-        panelSuperior.add(btnEliminar, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(31, 12, 0, 0);
+        jPanel1.add(btnEliminar, gridBagConstraints);
 
-        btnBuscar.setBackground(new java.awt.Color(0, 51, 255));
-        btnBuscar.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Buscar.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 13;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(21, 22, 0, 0);
+        jPanel1.add(jLabel6, gridBagConstraints);
+
+        btnBuscar.setBackground(new java.awt.Color(204, 0, 204));
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 23;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 2, 0, 0);
-        panelSuperior.add(btnBuscar, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(31, 2, 0, 0);
+        jPanel1.add(btnBuscar, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 204));
-        jLabel1.setText("Buscar ");
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel7.setText("Buscar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipady = 5;
+        gridBagConstraints.ipady = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 30, 0, 0);
-        panelSuperior.add(jLabel1, gridBagConstraints);
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        gridBagConstraints.insets = new java.awt.Insets(12, 58, 0, 0);
+        jPanel1.add(jLabel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 18;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 66;
-        gridBagConstraints.ipady = 18;
+        gridBagConstraints.ipady = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 7, 0, 4);
-        panelSuperior.add(jTextField1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(12, 10, 0, 11);
+        jPanel1.add(txtBuscar, gridBagConstraints);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Guardar.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
-        panelSuperior.add(jLabel2, gridBagConstraints);
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Actualizar.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-<<<<<<< HEAD
-        gridBagConstraints.insets = new java.awt.Insets(10, 7, 0, 6);
-        panelSuperior.add(txtBuscar, gridBagConstraints);
-=======
-        gridBagConstraints.insets = new java.awt.Insets(20, 29, 0, 0);
-        panelSuperior.add(jLabel3, gridBagConstraints);
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setPreferredSize(new java.awt.Dimension(668, 70));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/cancelar.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 22, 0, 0);
-        panelSuperior.add(jLabel4, gridBagConstraints);
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel8.setText("Total Categoria: ");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/Buscar.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 13;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 17, 0, 0);
-        panelSuperior.add(jLabel5, gridBagConstraints);
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jLabel9.setText("0");
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VistaIconos/categoria.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.ipady = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 39, 0, 0);
-        panelSuperior.add(jLabel6, gridBagConstraints);
->>>>>>> b535bd5c057c7e7e5227cb74905e3de247624696
-
-        getContentPane().add(panelSuperior, java.awt.BorderLayout.PAGE_START);
-
-        panelEstadisticas.setBackground(new java.awt.Color(204, 204, 204));
-        panelEstadisticas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelEstadisticas.setPreferredSize(new java.awt.Dimension(574, 65));
-
-        lblTotal.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        lblTotal.setForeground(new java.awt.Color(204, 0, 204));
-        lblTotal.setText("Total Categorías:");
-
-        lblCantidadTotal.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
-        lblCantidadTotal.setForeground(new java.awt.Color(0, 153, 51));
-        lblCantidadTotal.setText("0");
-
-        javax.swing.GroupLayout panelEstadisticasLayout = new javax.swing.GroupLayout(panelEstadisticas);
-        panelEstadisticas.setLayout(panelEstadisticasLayout);
-        panelEstadisticasLayout.setHorizontalGroup(
-            panelEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEstadisticasLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lblTotal)
-                .addGap(30, 30, 30)
-                .addComponent(lblCantidadTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(357, Short.MAX_VALUE))
         );
-        panelEstadisticasLayout.setVerticalGroup(
-            panelEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEstadisticasLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(panelEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotal)
-                    .addComponent(lblCantidadTotal))
-                .addContainerGap(21, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelEstadisticas, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
-        scrollTabla.setViewportBorder(new javax.swing.border.MatteBorder(null));
-
-        tablaCategorias.setBackground(new java.awt.Color(51, 204, 255));
-        tablaCategorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tablaCategorias.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        tablaCategorias.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCategoria.setBackground(new java.awt.Color(51, 204, 255));
+        tablaCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tablaCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null}
             },
             new String [] {
-                "Id Categoria", "Nombre categoria", "Descripcion"
+                "Id Categoria", "Nombre Categoria", "Observaciones"
             }
         ) {
             Class[] types = new Class [] {
@@ -307,29 +263,19 @@ public class panelCategoria extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tablaCategorias.setGridColor(new java.awt.Color(224, 224, 224));
-        tablaCategorias.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        tablaCategorias.setShowGrid(true);
-        scrollTabla.setViewportView(tablaCategorias);
+        tablaCategoria.setShowGrid(true);
+        jScrollPane1.setViewportView(tablaCategoria);
 
-        getContentPane().add(scrollTabla, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         java.awt.Frame parentFrame = (java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(this);
         DialogoCategoria dialogo = new DialogoCategoria(parentFrame, true);
         dialogo.setVisible(true);
     }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -338,22 +284,18 @@ public class panelCategoria extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
-<<<<<<< HEAD
-=======
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
->>>>>>> b535bd5c057c7e7e5227cb74905e3de247624696
-    private javax.swing.JLabel lblCantidadTotal;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblTotal;
-    private javax.swing.JPanel panelEstadisticas;
-    private javax.swing.JPanel panelSuperior;
-    private javax.swing.JScrollPane scrollTabla;
-    private javax.swing.JTable tablaCategorias;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaCategoria;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

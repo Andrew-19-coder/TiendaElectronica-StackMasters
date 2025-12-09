@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author oscar
+ * @author Braya
  */
 public class ControladorCategoria {
     private CategoriaDAO categoria;
@@ -181,4 +181,5 @@ public class ControladorCategoria {
             JOptionPane.showMessageDialog(vista, "No se encontraron resultados");
         }
     }
+ 
 }

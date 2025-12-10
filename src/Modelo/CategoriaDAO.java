@@ -20,10 +20,9 @@ public class CategoriaDAO {
     }
     
     public boolean insertar(Categoria cate) {
-      String sql = "INSERT INTO Categoria (id_categoria, nombre_categoria, descripcion) VALUES (?, ?, ?)";
+      String sql = "INSERT INTO Categoria (nombre_categoria, descripcion) VALUES (?, ?)";
      try {
         PreparedStatement ps = conexion.prepareStatement(sql);
-        ps.setInt(1, cate.getId());
         ps.setString(2, cate.getNombre());
         ps.setString(3, cate.getDescripcion());
         
@@ -38,10 +37,9 @@ public class CategoriaDAO {
     }
     
     public boolean actualizar(Categoria cate){
-        String sql = "UPDATE Categoria SET id_categoria = ?, nombre_categoria = ?, descripcion = ?";
+        String sql = "UPDATE Categoria SET  nombre_categoria = ?, descripcion = ? WHERE id_categoria = ?";
         try{
             PreparedStatement ps = conexion.prepareStatement(sql);
-            ps.setInt(1, cate.getId());
             ps.setString(2, cate.getNombre());
             ps.setString(3, cate.getDescripcion());
             
@@ -55,7 +53,7 @@ public class CategoriaDAO {
     }
     
     public boolean eliminar(int idCate) {
-        String sql = "DELETE FROM Categoria WHERE id_producto = ?";
+        String sql = "DELETE FROM Categoria WHERE id_categoria = ?";
         
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -107,8 +105,7 @@ public class CategoriaDAO {
 
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
-            String parametro = "%" + criterio + "%";
-            ps.setString(1, parametro);
+            ps.setString(1, criterio);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {

@@ -28,5 +28,7 @@ public class Categoria {
     public Categoria(int id, String nombre, String Descripcion) {
         this.id = id;this.nombre = nombre;this.Descripcion = Descripcion;
     }
-  
+
+    public Categoria() {
+    }
 }

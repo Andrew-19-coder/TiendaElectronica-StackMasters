@@ -44,16 +44,14 @@ public class ControladorCategoria {
     public void agregarCategoria() {
         DialogoCategoria dialogo = new DialogoCategoria(null, true);
         dialogo.setVisible(true);
-
-        if (dialogo.isConfirmado()) {
-            Categoria cate = dialogo.getCate();
-            if (validarDatos(cate)) {
-                if (categoria.insertar(cate)) {
-                    JOptionPane.showMessageDialog(vista, "Categoria registrada exitosamente");
-                    cargarCategoria();
-                } else {
-                    JOptionPane.showMessageDialog(vista, "Error al registrar la categoria", "Error", JOptionPane.ERROR_MESSAGE);
-                }
+        
+        Categoria cate = dialogo.getCate();
+        if (validarDatos(cate)) {
+            if (categoria.insertar(cate)) {
+                JOptionPane.showMessageDialog(vista, "Categoria registrada exitosamente");
+                cargarCategoria();
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error al registrar la categoria", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -64,7 +62,7 @@ public class ControladorCategoria {
             return false;
         }
 
-        if (!cate.getDescripcion().isEmpty()) {
+        if (cate.getDescripcion().isEmpty()) {
             JOptionPane.showMessageDialog(vista, " Faltan Datos requeridos");
             return false;
         }
@@ -89,17 +87,15 @@ public class ControladorCategoria {
             DialogoCategoria dialogo = new DialogoCategoria(null, true);
             dialogo.setVisible(true);
 
-            if (dialogo.isConfirmado()) {
-                Categoria categoriaActualizado = dialogo.getCate();
-                categoriaActualizado.setId(id);
+            Categoria categoriaActualizado = dialogo.getCate();
+            categoriaActualizado.setId(id);
 
-                if (validarDatos(categoriaActualizado)) {
-                    if (categoria.actualizar(categoriaActualizado)) {
-                        JOptionPane.showMessageDialog(vista, "Categoria actualizada exitosamente");
-                        cargarCategoria();
-                    } else {
-                        JOptionPane.showMessageDialog(vista, "Error al actualizar", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+            if (validarDatos(categoriaActualizado)) {
+                if (categoria.actualizar(categoriaActualizado)) {
+                    JOptionPane.showMessageDialog(vista, "Categoria actualizada exitosamente");
+                    cargarCategoria();
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al actualizar", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -137,9 +133,9 @@ public class ControladorCategoria {
                 DefaultTableModel modelo = (DefaultTableModel) vista.getTable().getModel();
                 modelo.removeRow(fila);
 
-                JOptionPane.showMessageDialog(vista, "categoria desactivado exitosamente");
+                JOptionPane.showMessageDialog(vista, "categoria eliminada exitosamente");
             } else {
-                JOptionPane.showMessageDialog(vista, "Error al desactivar la categoria", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Error al eliminar la categoria", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

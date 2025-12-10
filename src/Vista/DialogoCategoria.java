@@ -15,23 +15,31 @@ public class DialogoCategoria extends javax.swing.JDialog {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DialogoCategoria.class.getName());
     
     private Categoria cate;
-    private boolean confirmado = false;
     /**
      * Creates new form DialogoCategoria
      */
     public DialogoCategoria(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.cate = cate;
+        this.cate = new Categoria();
+        cargarDatos();
     }
+    
+    public DialogoCategoria(java.awt.Frame parent, boolean modal, Categoria cate) {
+        super(parent, modal);
+        initComponents();
+        this.cate = cate;
+        cargarDatos();
+    }
+
+    
+    
+    
     
     public Categoria getCate() {
         return cate;
     }
 
-    public boolean isConfirmado() {
-        return confirmado;
-    }
     
     private void cargarDatos() {
         txtNombre.setText(cate.getNombre());
@@ -42,7 +50,6 @@ public class DialogoCategoria extends javax.swing.JDialog {
         cate.setNombre(txtNombre.getText().trim());
         cate.setDescripcion(txtDescripcion.getText().trim());
 
-        confirmado = true;
         dispose();
     }
     

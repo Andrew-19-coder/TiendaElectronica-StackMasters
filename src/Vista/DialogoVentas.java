@@ -460,8 +460,6 @@ public class DialogoVentas extends javax.swing.JDialog implements IVista {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        txtObservaciones.setOpaque(true);
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 0, 204));
         jLabel7.setText("Observaciones");

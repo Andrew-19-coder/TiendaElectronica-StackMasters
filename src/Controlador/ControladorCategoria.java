@@ -56,19 +56,25 @@ public class ControladorCategoria {
         }
     }
     
+   
     private boolean validarDatos(Categoria cate) {
-        if (cate.getNombre().isEmpty()) {
-            JOptionPane.showMessageDialog(vista, "El nombre es obligatorio");
-            return false;
-        }
-
-        if (cate.getDescripcion().isEmpty()) {
-            JOptionPane.showMessageDialog(vista, " Faltan Datos requeridos");
-            return false;
-        }
-
-        return true;
+    if (cate == null) {
+        JOptionPane.showMessageDialog(vista, "Error: No se pudo obtener los datos de la categoría");
+        return false;
     }
+    
+    if (cate.getNombre() == null || cate.getNombre().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(vista, "El nombre es obligatorio");
+        return false;
+    }
+    
+    if (cate.getDescripcion() == null || cate.getDescripcion().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(vista, "Faltan Datos requeridos");
+        return false;
+    }
+    
+    return true;
+}
     
     
     

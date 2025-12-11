@@ -21,26 +21,25 @@ public class ProvedorDAO {
     }
 
     public boolean insertar(Provedor provedor) {
-        String sql = "INSERT INTO Provedores (nombre, contacto, telefono, email, direccion, estado) VALUES (?, ?, ?, ?, ?, ?)";
-
-        try {
-            PreparedStatement ps = conexion.prepareStatement(sql);
-            ps.setString(1, provedor.getNombre());
-            ps.setString(2, provedor.getContacto());
-            ps.setString(3, provedor.getTelefono());
-            ps.setString(4, provedor.getEmail());
-            ps.setString(5, provedor.getDireccion());
-            ps.setBoolean(6, provedor.isEstado());
-
-            int filasAfectadas = ps.executeUpdate();
-            ps.close();
-            return filasAfectadas > 0;
-
-        } catch (SQLException e) {
-            System.err.println("Error al insertar proveedor: " + e.getMessage());
-            return false;
-        }
+    String sql = "INSERT INTO Provedores (nombre, contacto, telefono, email, direccion, estado, fecha_registro) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+    try {
+        PreparedStatement ps = conexion.prepareStatement(sql);
+        ps.setString(1, provedor.getNombre());
+        ps.setString(2, provedor.getContacto());
+        ps.setString(3, provedor.getTelefono());
+        ps.setString(4, provedor.getEmail());
+        ps.setString(5, provedor.getDireccion());
+        ps.setBoolean(6, provedor.isEstado());
+        
+        int filasAfectadas = ps.executeUpdate();
+        ps.close();
+        return filasAfectadas > 0;
+        
+    } catch (SQLException e) {
+        System.err.println("Error al insertar proveedor: " + e.getMessage());
+        return false;
     }
+}
 
     public boolean actualizar(Provedor provedor) {
         String sql = "UPDATE Provedores SET nombre = ?, contacto = ?, telefono = ?, email = ?, direccion = ?, estado = ? WHERE id_provedor = ?";
